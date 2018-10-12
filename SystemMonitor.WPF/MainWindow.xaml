@@ -12,12 +12,38 @@
            BasedOn="{StaticResource MetroFlatButton}" />
     </Controls:MetroWindow.Resources>
     <Grid>
-        <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
-            <Button Content="Main page" Click="Button_Click_1"/>
-            <Button Content="Disk info" Click="Button_Click_2"/>
-            <Button Content="Current processes" Click="Button_Click_3"/>
-        </StackPanel>
-        <Frame x:Name="Main" Margin="0,40,0,0" NavigationUIVisibility="Hidden">
-        </Frame>
+        <Controls:MetroTabControl FontFamily="Segoe UI Light"  x:Name="Tabs">
+            <Controls:MetroTabItem x:Name="HomeTab" Header="Home">
+                <Grid>
+                    <Label FontSize="25">Welcome to System Status Monitor (SSM):</Label>
+                    <ListBox x:Name="ListHome" Margin="0,70,0,0">
+                        <ListBoxItem>Hello</ListBoxItem>
+                        <ListBoxItem>My name is Herman</ListBoxItem>
+                    </ListBox>
+                </Grid>
+            </Controls:MetroTabItem>
+            <Controls:MetroTabItem Header="Processes info">
+                <Grid>
+                    <DataGrid x:Name="ProcessesGridView"
+                         ItemsSource="{Binding Processes}" Margin="10,20,10,0"
+                         AutoGenerateColumns="False"
+                         Style="{StaticResource AzureDataGrid}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Process name"
+                                    Binding="{Binding ProcessName}" />
+                            <DataGridTextColumn Header="ID"
+                                    Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Priority class"
+                                    Binding="{Binding PriorityClass}" />
+                            <DataGridTextColumn Header="Base priority"
+                                    Binding="{Binding BasePriority}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Controls:MetroTabItem>
+            <Controls:MetroTabItem Header="Disk info">
+
+            </Controls:MetroTabItem>
+        </Controls:MetroTabControl>
     </Grid>
 </Controls:MetroWindow>
