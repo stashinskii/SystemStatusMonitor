@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace SystemMonitor.BLL.Interface
     /// </summary>
     public interface IService
     {
-        string GetCurrentOs();
+        string GetCurrentOsName();
         void GetCurrentOsInfo();
 
         void GetAllProcesses();
@@ -26,5 +27,8 @@ namespace SystemMonitor.BLL.Interface
 
         void GetRAMInfo();
         void GetRAMLoad();
+
+        WindowsIdentity GetCurrentUser();
+        string GetCurrentUserName();
     }
 }

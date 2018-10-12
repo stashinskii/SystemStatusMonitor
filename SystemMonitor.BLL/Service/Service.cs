@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Management;
 
 using SystemMonitor.BLL.Interface;
+using System.Security.Principal;
 
 namespace SystemMonitor.BLL.Service
 {
@@ -35,9 +37,12 @@ namespace SystemMonitor.BLL.Service
             throw new NotImplementedException();
         }
 
-        public string GetCurrentOs()
+        public string GetCurrentOsName()
         {
-            return "Windows OS";
+            var name = (from x in new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem").Get().OfType<ManagementObject>()
+                        select x.GetPropertyValue("Caption")).First();
+
+            return name != null ? name.ToString() : "Unknown";
         }
 
         public void GetCurrentOsInfo()
@@ -64,5 +69,25 @@ namespace SystemMonitor.BLL.Service
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// Returns current Identity
+        /// </summary>
+        /// <returns></returns>
+        public WindowsIdentity GetCurrentUser()
+        {
+            return WindowsIdentity.GetCurrent();
+        }
+
+        /// <summary>
+        /// Returns current's Identity UserName
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentUserName()
+        {
+            return WindowsIdentity.GetCurrent().Name;
+        }
+
+
     }
 }

@@ -35,7 +35,7 @@ namespace SystemMonitor
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(MonitorService.GetCurrentOs());
+            MessageBox.Show(MonitorService.GetCurrentOsName());
         }
     }
 }
