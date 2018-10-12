@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using SystemMonitor;
 using SystemMonitor.BLL.Interface;
-using SystemMonitor.BLL.Service;
 
 namespace SystemMonitor
 {
@@ -18,21 +17,9 @@ namespace SystemMonitor
     /// </summary>
     public partial class App : Application
     {
-        private IKernel container;
-
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            ConfigureContainer();
-            Current.MainWindow = this.container.Get<MainWindow>();
-            Current.MainWindow.Show();
         }
-
-        private void ConfigureContainer()
-        {
-            this.container = new StandardKernel();
-            container.ConfigurateResolver();
-        }
-
     }
 }

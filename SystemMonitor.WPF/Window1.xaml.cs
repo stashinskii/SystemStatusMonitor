@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ninject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,32 +11,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DependencyResolving;
-using MahApps.Metro.Controls;
-using Ninject;
 using SystemMonitor.BLL.Interface;
 
 namespace SystemMonitor
 {
     /// <summary>
+    /// Interaction logic for Window1.xaml
+    /// </summary>
+    /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow
+    public partial class Window1
     {
         public IService MonitorService { get; set; }
 
-        public MainWindow()
+        public Window1()
         {
-            IKernel resolver = new StandardKernel();
-            resolver.ConfigurateResolver();
-            MonitorService = resolver.Get<IService>();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(MonitorService.GetCurrentOs());
+            InitializeComponent();
         }
     }
 }

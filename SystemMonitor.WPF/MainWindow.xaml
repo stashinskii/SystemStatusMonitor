@@ -22,5 +22,12 @@
                
             </Rectangle>
         </Button>
+        <Button Width="55"
+            Height="55"
+            VerticalAlignment="Top"
+            Style="{DynamicResource MetroCircleButtonStyle}" Margin="221,145,516,0" Click="Button_Click">
+            <Rectangle Width="20"
+                Height="20"/>
+        </Button>
     </Grid>
 </Controls:MetroWindow>
