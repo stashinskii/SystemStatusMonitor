@@ -12,22 +12,12 @@
            BasedOn="{StaticResource MetroFlatButton}" />
     </Controls:MetroWindow.Resources>
     <Grid>
-        <Label x:Name="HomePageLabel" Content="Welcome to System Status Monitor Widget" FontSize="30" FontFamily="Segoe UI Light" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Button Width="55"
-        Height="55"
-        VerticalAlignment="Top"
-        Style="{DynamicResource MetroCircleButtonStyle}" Margin="57,79,680,0" Click="Button_Click">
-            <Rectangle Width="20"
-              Height="20">
-               
-            </Rectangle>
-        </Button>
-        <Button Width="55"
-            Height="55"
-            VerticalAlignment="Top"
-            Style="{DynamicResource MetroCircleButtonStyle}" Margin="221,145,516,0" Click="Button_Click">
-            <Rectangle Width="20"
-                Height="20"/>
-        </Button>
+        <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+            <Button Content="Main page" Click="Button_Click_1"/>
+            <Button Content="Disk info" Click="Button_Click_2"/>
+            <Button Content="Current processes" Click="Button_Click_3"/>
+        </StackPanel>
+        <Frame x:Name="Main" Margin="0,40,0,0" NavigationUIVisibility="Hidden">
+        </Frame>
     </Grid>
 </Controls:MetroWindow>

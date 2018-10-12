@@ -16,6 +16,7 @@ using DependencyResolving;
 using MahApps.Metro.Controls;
 using Ninject;
 using SystemMonitor.BLL.Interface;
+using SystemMonitor.Pages;
 
 namespace SystemMonitor
 {
@@ -36,6 +37,21 @@ namespace SystemMonitor
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(MonitorService.GetCurrentOsName());
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new MainPage();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new DiskInfoPage();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new ProccessesPage();
         }
     }
 }

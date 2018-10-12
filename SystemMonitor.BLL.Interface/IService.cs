@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -15,7 +17,7 @@ namespace SystemMonitor.BLL.Interface
         string GetCurrentOsName();
         void GetCurrentOsInfo();
 
-        void GetAllProcesses();
+        ObservableCollection<Process> GetAllProcesses();
         void GetProcessByName(string processName);
 
         void GetAllDiscs();

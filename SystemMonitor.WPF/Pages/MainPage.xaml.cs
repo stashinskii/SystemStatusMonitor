@@ -1,5 +1,4 @@
-﻿using Ninject;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,22 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SystemMonitor.BLL.Interface;
 
 namespace SystemMonitor
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for MainPage.xaml
     /// </summary>
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class Window1
+    public partial class MainPage : Page
     {
-        public IService MonitorService { get; set; }
-
-        public Window1()
+        public MainPage()
         {
             InitializeComponent();
         }

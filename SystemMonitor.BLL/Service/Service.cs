@@ -7,6 +7,8 @@ using System.Management;
 
 using SystemMonitor.BLL.Interface;
 using System.Security.Principal;
+using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 namespace SystemMonitor.BLL.Service
 {
@@ -17,9 +19,11 @@ namespace SystemMonitor.BLL.Service
             throw new NotImplementedException();
         }
 
-        public void GetAllProcesses()
+        public ObservableCollection<Process> GetAllProcesses()
         {
-            throw new NotImplementedException();
+            List<Process> processesList = Process.GetProcesses().ToList();
+            var processesCollection = new ObservableCollection<Process>(processesList as List<Process>);
+            return processesCollection;
         }
 
         public void GetCPULoad()
