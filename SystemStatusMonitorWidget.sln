@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitor.Tests", "Syst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitor.BLL.Interface", "SystemMonitor.BLL.Interface\SystemMonitor.BLL.Interface.csproj", "{8BAAA46C-EDB3-42E2-B101-7EE7FFC9D031}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyResolving", "DependencyResolving\DependencyResolving.csproj", "{0783407B-3AC7-42D3-94F1-311877D4A53D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8BAAA46C-EDB3-42E2-B101-7EE7FFC9D031}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BAAA46C-EDB3-42E2-B101-7EE7FFC9D031}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BAAA46C-EDB3-42E2-B101-7EE7FFC9D031}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0783407B-3AC7-42D3-94F1-311877D4A53D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0783407B-3AC7-42D3-94F1-311877D4A53D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0783407B-3AC7-42D3-94F1-311877D4A53D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0783407B-3AC7-42D3-94F1-311877D4A53D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

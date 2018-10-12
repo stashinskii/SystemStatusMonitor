@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SystemMonitor.BLL")]
+[assembly: AssemblyTitle("DependencyResolving")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SystemMonitor.BLL")]
+[assembly: AssemblyProduct("DependencyResolving")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("38eba7d2-dace-469c-aa8c-3043afc4d7e4")]
+[assembly: Guid("0783407b-3ac7-42d3-94f1-311877d4a53d")]
 
 // Version information for an assembly consists of the following four values:
 //

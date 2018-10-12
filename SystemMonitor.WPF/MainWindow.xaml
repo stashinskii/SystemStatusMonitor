@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        xmlns:local="clr-namespace:SystemStatusMonitorWidget"
+        xmlns:local="clr-namespace:SystemMonitor"
         mc:Ignorable="d"
         Title="System Status Monitor Widget" Height="450" Width="800">
     <Controls:MetroWindow.Resources>
@@ -16,7 +16,7 @@
         <Button Width="55"
         Height="55"
         VerticalAlignment="Top"
-        Style="{DynamicResource MetroCircleButtonStyle}" Margin="57,79,680,0">
+        Style="{DynamicResource MetroCircleButtonStyle}" Margin="57,79,680,0" Click="Button_Click">
             <Rectangle Width="20"
               Height="20">
                
