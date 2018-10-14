@@ -6,7 +6,9 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Management;
 using SystemMonitor.BLL.Interface.Entitites;
+using System.IO;
 
 namespace SystemMonitor.BLL.Interface
 {
@@ -36,6 +38,10 @@ namespace SystemMonitor.BLL.Interface
         int GetAmountOfProcessors();
 
         ComputerInfo GetComputerInfo();
+
+        ManagementObject GetVideoControllerInfo();
+
+        IEnumerable<DriveInfo> GetHardDriveInfo();
 
         WindowsIdentity GetCurrentUser();
         string GetCurrentUserName();

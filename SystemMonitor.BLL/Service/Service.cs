@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Collections.ObjectModel;
 using SystemMonitor.BLL.Interface.Entitites;
 using SystemMonitor.BLL.Entities;
+using System.IO;
 
 namespace SystemMonitor.BLL.Service
 {
@@ -20,6 +21,27 @@ namespace SystemMonitor.BLL.Service
         {
             ComputerInfo computerInfo = new GeneralComputerInfo (GetCurrentOsName(),GetAmountOfProcessors(),GetMachineInfo());
             return computerInfo;            
+        }
+
+        public ManagementObject GetVideoControllerInfo()
+        {
+            ManagementObjectSearcher myVideoObject = new ManagementObjectSearcher("select * from Win32_VideoController");
+
+            ManagementObject videoInfo = new ManagementObject();
+
+            foreach (ManagementObject obj in myVideoObject.Get())
+            {
+                videoInfo = obj;
+            }
+
+            return videoInfo;
+
+        }
+
+        public IEnumerable<DriveInfo> GetHardDriveInfo()
+        {
+           return DriveInfo.GetDrives().ToList();
+
         }
 
         public void GetAllDiscs()

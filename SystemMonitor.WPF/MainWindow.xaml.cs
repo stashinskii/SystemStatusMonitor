@@ -40,6 +40,8 @@ namespace SystemMonitor
             InitializeComponent();
             ProcessesGridView.ItemsSource = Processes;
             SetPCInfo();
+            SetVCInfo();
+            SetDriveInfo();
         }
 
         private void SetPCInfo()
@@ -49,6 +51,38 @@ namespace SystemMonitor
             MachineName.Content = computerInfo.MachineName;
             AmountOfProcessorsName.Content = computerInfo.ProcessorsAmount;
         }
+
+        private void SetVCInfo()
+        {
+            var vcInfo = MonitorService.GetVideoControllerInfo();
+            VCName.Content = vcInfo["Name"]; 
+            VCDriver.Content = vcInfo["DriverVersion"];
+            VCProc.Content = vcInfo["VideoProcessor"];
+            VCStatus.Content = vcInfo["VideoProcessor"];
+        }
+
+        private void SetDriveInfo()
+        {
+            var drives = MonitorService.GetHardDriveInfo();
+            foreach (var drive in drives)
+            {
+                DisksInfoList.Items.Add($"Drive {drive.Name}");
+                DisksInfoList.Items.Add($"  Drive type: {drive.DriveType}");
+                if (drive.IsReady == true)
+                {
+                    DisksInfoList.Items.Add($"  Volume label: {drive.VolumeLabel}");
+                    DisksInfoList.Items.Add($"  File system: {drive.DriveFormat}");
+                    DisksInfoList.Items.Add($"  Available space to current user:{drive.AvailableFreeSpace} bytes");
+
+                    DisksInfoList.Items.Add($"  Total available space:          {drive.TotalFreeSpace} bytes");
+
+                    DisksInfoList.Items.Add($"  Total size of drive:            {drive.TotalSize} bytes ");
+                    DisksInfoList.Items.Add($"  Root directory:            {drive.RootDirectory}");
+                }
+            }
+        }
+
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
