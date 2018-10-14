@@ -43,12 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\GeneralComputerInfo.cs" />
     <Compile Include="Service\Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\SystemMonitor.BLL.Interface\SystemMonitor.BLL.Interface.csproj">
       <Project>{8baaa46c-edb3-42e2-b101-7ee7ffc9d031}</Project>

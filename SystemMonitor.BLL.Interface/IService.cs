@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using SystemMonitor.BLL.Interface.Entitites;
 
 namespace SystemMonitor.BLL.Interface
 {
@@ -29,6 +30,12 @@ namespace SystemMonitor.BLL.Interface
 
         void GetRAMInfo();
         void GetRAMLoad();
+
+        string GetMachineInfo();
+
+        int GetAmountOfProcessors();
+
+        ComputerInfo GetComputerInfo();
 
         WindowsIdentity GetCurrentUser();
         string GetCurrentUserName();

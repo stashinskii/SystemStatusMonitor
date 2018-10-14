@@ -9,11 +9,19 @@ using SystemMonitor.BLL.Interface;
 using System.Security.Principal;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
+using SystemMonitor.BLL.Interface.Entitites;
+using SystemMonitor.BLL.Entities;
 
 namespace SystemMonitor.BLL.Service
 {
     public class Service : IService
     {
+        public ComputerInfo GetComputerInfo()
+        {
+            ComputerInfo computerInfo = new GeneralComputerInfo (GetCurrentOsName(),GetAmountOfProcessors(),GetMachineInfo());
+            return computerInfo;            
+        }
+
         public void GetAllDiscs()
         {
             throw new NotImplementedException();
@@ -52,6 +60,16 @@ namespace SystemMonitor.BLL.Service
         public void GetCurrentOsInfo()
         {
             throw new NotImplementedException();
+        }
+
+        public string GetMachineInfo()
+        {
+            return Environment.MachineName;
+        }
+
+        public int GetAmountOfProcessors()
+        {
+            return Environment.ProcessorCount;
         }
 
         public void GetDiskInfo(string diskName)

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -37,10 +39,21 @@ namespace SystemMonitor
             Processes = MonitorService.GetAllProcesses().Take(20);
             InitializeComponent();
             ProcessesGridView.ItemsSource = Processes;
-            ListHome.Items.Add("sdds");
-
+            SetPCInfo();
         }
 
-      
+        private void SetPCInfo()
+        {
+            var computerInfo = MonitorService.GetComputerInfo();
+            OSName.Content = computerInfo.OSName;
+            MachineName.Content = computerInfo.MachineName;
+            AmountOfProcessorsName.Content = computerInfo.ProcessorsAmount;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Setting page = new Setting();
+            page.Show();
+        }
     }
 }

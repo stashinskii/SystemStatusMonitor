@@ -1,4 +1,5 @@
 ﻿using DependencyResolving;
+using MahApps.Metro;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,14 @@ namespace SystemMonitor
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+
+            var accent = ConfigurationManager.AppSettings["accent"];
+            var theme = ConfigurationManager.AppSettings["theme"];
+            Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
+
+            ThemeManager.ChangeAppStyle(Current,
+                                        ThemeManager.GetAccent(accent),
+                                        ThemeManager.GetAppTheme(theme));
             base.OnStartup(e);
         }
     }
