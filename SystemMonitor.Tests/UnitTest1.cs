@@ -1,13 +1,12 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 
 namespace SystemStatusMonitorWidget.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class ServiceTests
     {
-        [TestMethod]
+        [Test]
         public void TestMethod1()
         {
         }

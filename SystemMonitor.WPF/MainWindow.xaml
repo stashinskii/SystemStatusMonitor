@@ -64,8 +64,24 @@
                                 </StackPanel>
                             </StackPanel>
                         </Canvas>
-                        <Canvas x:Name="ThirdPanel" Background="#3d3d3d" Margin="5,5,5,5" Grid.Column="1" Grid.Row="1"/>
-                        <Canvas x:Name="FourthPanel" Background="#222f3e" Margin="5,5,5,5" Grid.Column="0" Grid.Row="1"/>
+                        <Canvas x:Name="ThirdPanel" Background="#3d3d3d" Margin="5,5,5,5" Grid.Column="1" Grid.Row="1">
+                            <StackPanel Orientation="Vertical">
+                                <Label Foreground="White" FontSize="20" Content=".NET Framework:"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Foreground="White" Content=".NET Framework version:"/>
+                                    <Label Foreground="White" x:Name="NETVersion"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Canvas>
+                        <Canvas x:Name="FourthPanel" Background="#222f3e" Margin="5,5,5,5" Grid.Column="0" Grid.Row="1">
+                            <StackPanel Orientation="Vertical">
+                                <Label Foreground="White" FontSize="20" Content="RAM Information"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Foreground="White" Content="Total amount of RAM:"/>
+                                    <Label Foreground="White" x:Name="RAMAmount"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Canvas>
                     </Grid>
                 </Grid>
             </Controls:MetroTabItem>

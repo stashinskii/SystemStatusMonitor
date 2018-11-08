@@ -42,6 +42,19 @@ namespace SystemMonitor
             SetPCInfo();
             SetVCInfo();
             SetDriveInfo();
+            SetRamInfo();
+            SetNetInfo();
+        }
+
+        private void SetRamInfo()
+        {
+            RAMAmount.Content = Math.Round(MonitorService.GetRAMInfo() / Math.Pow(1024, 3), 1);
+            RAMAmount.Content += " GB";
+        }
+
+        private void SetNetInfo()
+        {
+            NETVersion.Content = MonitorService.GetDotNetVerison();
         }
 
         private void SetPCInfo()

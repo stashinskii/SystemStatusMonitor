@@ -104,9 +104,9 @@ namespace SystemMonitor.BLL.Service
             throw new NotImplementedException();
         }
 
-        public void GetRAMInfo()
+        public ulong GetRAMInfo()
         {
-            throw new NotImplementedException();
+            return new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory;
         }
 
         public void GetRAMLoad()
@@ -130,6 +130,11 @@ namespace SystemMonitor.BLL.Service
         public string GetCurrentUserName()
         {
             return WindowsIdentity.GetCurrent().Name;
+        }
+
+        public string GetDotNetVerison()
+        {
+            return Environment.Version.ToString();
         }
 
 

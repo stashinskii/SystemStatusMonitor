@@ -30,7 +30,7 @@ namespace SystemMonitor.BLL.Interface
         void GetCPUPower();
         void GetCPULoad();
 
-        void GetRAMInfo();
+        ulong GetRAMInfo();
         void GetRAMLoad();
 
         string GetMachineInfo();
@@ -45,5 +45,7 @@ namespace SystemMonitor.BLL.Interface
 
         WindowsIdentity GetCurrentUser();
         string GetCurrentUserName();
+
+        string GetDotNetVerison();
     }
 }
