@@ -17,11 +17,17 @@ namespace SystemMonitor.BLL.Service
 {
     public class Service : IService
     {
+        static Service()
+        {
+
+        }
+
         public ComputerInfo GetComputerInfo()
         {
-            ComputerInfo computerInfo = new GeneralComputerInfo (GetCurrentOsName(),GetAmountOfProcessors(),GetMachineInfo());
-            return computerInfo;            
+            ComputerInfo computerInfo = new GeneralComputerInfo(GetCurrentOsName(), GetAmountOfProcessors(), GetMachineInfo());
+            return computerInfo;
         }
+
 
         public ManagementObject GetVideoControllerInfo()
         {
@@ -52,6 +58,7 @@ namespace SystemMonitor.BLL.Service
         public ObservableCollection<Process> GetAllProcesses()
         {
             List<Process> processesList = Process.GetProcesses().ToList();
+            //processesList.GroupBy(x => x.ProcessName).Select(y => y.First());
             var processesCollection = new ObservableCollection<Process>(processesList as List<Process>);
             return processesCollection;
         }

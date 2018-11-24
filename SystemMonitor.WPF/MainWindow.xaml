@@ -87,13 +87,36 @@
             </Controls:MetroTabItem>
             <Controls:MetroTabItem Header="Processes info">
                 <Grid>
-                    <DataGrid x:Name="ProcessesGridView"
-                         ItemsSource="{Binding Processes}" Margin="10,20,10,0"
+                    <Button Margin="0,0,10,10" Height="30" Width="100" HorizontalAlignment="Right" 
+                            VerticalAlignment="Bottom" Click="KillProcess"
+                            Command="{Binding Remove}" 
+                            CommandParameter="{Binding ElementName=ProcessesGridView, Path=SelectedItem}" 
+                            Content="End task"
+                            Foreground="Black"
+                            >
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="IsEnabled" Value="True" />
+                                <Setter Property="Opacity" Value="1" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ProcessesGridView, Path=SelectedItem}" Value="{x:Null}">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                        <Setter Property="Opacity" Value=".5" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                        <DataGrid x:Name="ProcessesGridView"
+                         ItemsSource="{Binding Processes}" Margin="10,20,10,50"
                          AutoGenerateColumns="False"
+                         CanUserSortColumns="False"
+                         IsReadOnly="True"     
                          Style="{StaticResource AzureDataGrid}">
+                        
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Process name"
-                                    Binding="{Binding ProcessName}" />
+                                    Binding="{Binding ProcessName}"/>
                             <DataGridTextColumn Header="ID"
                                     Binding="{Binding Id}" />
                             <DataGridTextColumn Header="Priority class"

@@ -30,20 +30,40 @@ namespace SystemMonitor
     {
         public IService MonitorService { get; set; }
         public IEnumerable<Process> Processes { get; set; }
-
+        private int selectedElementIndex = -2; 
         public MainWindow()
         {
             IKernel resolver = new StandardKernel();
             resolver.ConfigurateResolver();
             MonitorService = resolver.Get<IService>();
-            Processes = MonitorService.GetAllProcesses().Take(20);
             InitializeComponent();
-            ProcessesGridView.ItemsSource = Processes;
+            GetOrderedProcesses();
             SetPCInfo();
             SetVCInfo();
             SetDriveInfo();
             SetRamInfo();
             SetNetInfo();
+            UpdateList();
+
+            
+        }
+
+            private void GetOrderedProcesses()
+        {
+           
+            Processes = MonitorService.GetAllProcesses().OrderBy(data => data.BasePriority);
+            ProcessesGridView.ItemsSource = Processes;
+        }
+
+
+        private async void UpdateList()
+        {
+            while (true)
+            {
+                await Task.Delay(3000);
+                GetOrderedProcesses();
+              
+            }
         }
 
         private void SetRamInfo()
@@ -102,5 +122,27 @@ namespace SystemMonitor
             Setting page = new Setting();
             page.Show();
         }
+
+        private void KillProcess(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var process = ProcessesGridView.SelectedItem as Process;
+               
+                //MessageBox.Show($"Process {process.ProcessName} killed!");
+                Process.GetProcessById(process.Id).Kill();
+                MessageBox.Show($"Process {process.ProcessName} killed!", "Success", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+            catch (Win32Exception)
+            {
+                MessageBox.Show("You don't have permission to delete this task!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong! Please, choose task one more time!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
+        }
     }
 }
+
